@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import DigitBtn from "./DigitBtn";
 import OperationButton from "./OperationButton";
 import "./App.css";
+
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose-operation",
@@ -10,6 +11,7 @@ export const ACTIONS = {
   EVALUATE: "evaluate",
 };
 function reducer(state, { type, payload }) {
+  // eslint-disable-next-line
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (payload.digit === "0" && state.currentoperand === "0") {
@@ -49,7 +51,8 @@ function evaluate(currentoperand, previousOperand, operation) {
   const prev = parseFloat(previousOperand);
   const current = parseFloat(currentoperand);
   if (isNaN(prev) || isNaN(current)) return "";
-  let computation = "";
+  let computation = " "; // eslint-disable-next-line
+  // eslint-disable-next-line
   switch (operation) {
     case "+":
       computation = prev + current;
